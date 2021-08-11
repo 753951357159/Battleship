@@ -6,6 +6,7 @@ To start the entire program and will not exit without confirmation. The program
 will terminate only when the user decides to exit the program.
 """
 from Settings import TITLE, NAME, VERSION, MDW, DEFAULT, GREEN, RED
+from Modes.TPT import main as tpt_main
 
 
 def header(mdw: int) -> None:
@@ -62,6 +63,7 @@ def menu() -> bool:
     elif response == '3':  # Starts the Single Player Competitive game mode
         return False
     elif response == '4':  # Starts the Two Player Traditional game mode
+        tpt_main()
         return False
     elif response == '5':  # Starts the Two Player Arcade game mode
         return False
