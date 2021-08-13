@@ -179,8 +179,9 @@ class Grid:
         Parameter(s):
          - vessel: The vessel that is being removed from the grid
         """
-        row = ROW_ICON.index(vessel.bow[0][0])
-        col = COL_ICON.index(vessel.bow[0][1])
+        col = COL_ICON.index(vessel.bow[0][0])
+        row = ROW_ICON.index(vessel.bow[0][1])
+
         leftover = vessel.hp - 1
         direction = vessel.bow[1]
 
