@@ -35,7 +35,8 @@ def main() -> None:
     full_game.update_p2_backup()
 
     # Setup Player 1 grid
-    input(f'{PURPLE}{full_game.player1.name}{DEFAULT}, '
+    space = '\n'
+    input(f'{space * 67}{PURPLE}{full_game.player1.name}{DEFAULT}, '
           f'you will now begin setting up your fleet grid. '
           f'Press {GREEN}ENTER{DEFAULT} to continue: ')
 
@@ -52,7 +53,8 @@ def main() -> None:
     print('')
 
     # Setup Player 2 grid
-    input(f'{PURPLE}{full_game.player2.name}{DEFAULT}, '
+    space = '\n'
+    input(f'{space * 67}{PURPLE}{full_game.player2.name}{DEFAULT}, '
           f'you will now begin setting up your fleet grid. '
           f'Press {GREEN}ENTER{DEFAULT} to continue: ')
 
