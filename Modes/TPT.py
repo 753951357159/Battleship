@@ -1,8 +1,8 @@
 """
-TPA.py
+TPT.py
 
 PURPOSE:
-Runs the entire Two Player Arcade game mode.
+Runs the entire Two Player Traditional game mode.
 """
 from typing import List, Tuple, Optional
 from Modes.General import _setup_player, _setup_grid, _confirm_grid, \
@@ -74,7 +74,7 @@ def main() -> None:
     while not winner[0]:
         _print_screen(full_game.current_player, full_game.other_player(),
                       full_game.current_orders, full_game.log)
-        response = input(f'{PURPLE}Command{DEFAULT}: ')
+        response = input(f'{PURPLE} >>> Command{DEFAULT}: ')
         check = _check_command(response, full_game.current_player,
                                full_game.current_orders)
         while not check[0]:
@@ -82,31 +82,36 @@ def main() -> None:
                 _print_screen(full_game.current_player,
                               full_game.other_player(),
                               full_game.current_orders, full_game.log)
-                response = input(f'{RED}Invalid Format{DEFAULT}; '
+                response = input(f'{PURPLE} >>> '
+                                 f'{RED}Invalid Format{DEFAULT}; '
                                  f'{PURPLE}Command{DEFAULT}: ')
             elif check[1] == -2:
                 _print_screen(full_game.current_player,
                               full_game.other_player(),
                               full_game.current_orders, full_game.log)
-                response = input(f'{RED}Invalid Command{DEFAULT}; '
+                response = input(f'{PURPLE} >>> '
+                                 f'{RED}Invalid Command{DEFAULT}; '
                                  f'{PURPLE}Command{DEFAULT}: ')
             elif check[1] == -3:
                 _print_screen(full_game.current_player,
                               full_game.other_player(),
                               full_game.current_orders, full_game.log)
-                response = input(f'{RED}Invalid Coordinate{DEFAULT}; '
+                response = input(f'{PURPLE} >>> '
+                                 f'{RED}Invalid Coordinate{DEFAULT}; '
                                  f'{PURPLE}Command{DEFAULT}: ')
             elif check[1] == -4:
                 _print_screen(full_game.current_player,
                               full_game.other_player(),
                               full_game.current_orders, full_game.log)
-                response = input(f'{RED}Max Orders Received Already{DEFAULT}; '
+                response = input(f'{PURPLE} >>> '
+                                 f'{RED}Max Orders Received Already{DEFAULT}; '
                                  f'{PURPLE}Command{DEFAULT}: ')
             else:  # check[1] == -5
                 _print_screen(full_game.current_player,
                               full_game.other_player(),
                               full_game.current_orders, full_game.log)
-                response = input(f'{RED}Invalid Order{DEFAULT}; '
+                response = input(f'{PURPLE} >>> '
+                                 f'{RED}Invalid Order{DEFAULT}; '
                                  f'{PURPLE}Command{DEFAULT}: ')
             check = _check_command(response, full_game.current_player,
                                    full_game.current_orders)
@@ -146,7 +151,6 @@ def _setup_fleet(player: Player) -> None:
 
     Parameter(s):
      - player: The player that the fleet is currently being setup for
-     - player_num: Either 1 / 2, representing the player
     """
     vessels = [TraditionalBattleship, TraditionalCruiser, TraditionalDestroyer,
                TraditionalFrigate, TraditionalSubmarine, TraditionalCarrier]

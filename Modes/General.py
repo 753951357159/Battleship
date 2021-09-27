@@ -29,8 +29,8 @@ def _setup_player() -> Tuple[Player, Player]:
         basic_check = False
         while not basic_check:
             name = input(
-                f'{PURPLE}Player {number}{DEFAULT} name: ').strip()
-            nation = input(f'{PURPLE}Player {number}{DEFAULT} '
+                f'{PURPLE} >>> Player {number}{DEFAULT} name: ').strip()
+            nation = input(f'{PURPLE} >>> Player {number}{DEFAULT} '
                            f'nationality: ').strip().upper()
 
             # Check if nation is valid
@@ -41,7 +41,7 @@ def _setup_player() -> Tuple[Player, Player]:
                 for nation in nations_joined:
                     valid.remove(nation)
 
-                nation = input(f'{RED}Invalid Nation{DEFAULT} - '
+                nation = input(f'{PURPLE} >>> {RED}Invalid Nation{DEFAULT} - '
                                f'Select from {valid}: ').strip().upper()
 
             # Confirm with user that this is what they want
@@ -49,13 +49,14 @@ def _setup_player() -> Tuple[Player, Player]:
             print(f'\tName: {name}')
             print(f'\tNationality: {nation}')
             confirm = input(
-                f'{PURPLE}Player {number}{DEFAULT}, confirm '
+                f'{PURPLE} >>> Player {number}{DEFAULT}, confirm '
                 f'the above is correct (Y/N): ').strip()
 
             # Check user response is valid
             while confirm not in AFFIRMATIVE and \
                     confirm not in NEGATIVE:
-                confirm = input(f'{RED}Invalid Option{DEFAULT} (Y/N): ')
+                confirm = input(f'{PURPLE} >>> {RED}'
+                                f'Invalid Option{DEFAULT} (Y/N): ')
             if confirm in AFFIRMATIVE:
                 return name, nation
             print('')
@@ -252,29 +253,29 @@ def _setup_grid(player: Player) -> bool:
     print(parallel_print([player.personal], vessel_lst))
 
     # Ask use for input
-    response = input(f'{PURPLE}Command{DEFAULT}: ')
+    response = input(f'{PURPLE} >>> Command{DEFAULT}: ')
     check = _check_response(response)
     while not check[0]:
         if check[1] == 1:
-            response = input(f'{RED}Invalid Format{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Format{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 2:
-            response = input(f'{RED}Invalid Command{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Command{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 3:
-            response = input(f'{RED}Invalid Class{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Class{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 4:
-            response = input(f'{RED}Invalid Vessel{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Vessel{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 5:
-            response = input(f'{RED}Invalid Coordinate{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Coordinate{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 6:
-            response = input(f'{RED}Invalid Direction{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Direction{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT}: ')
         elif check[1] == 7:
-            response = input(f'{RED}Invalid Nodes{DEFAULT}; '
+            response = input(f'{PURPLE} >>> {RED}Invalid Nodes{DEFAULT}; '
                              f'{PURPLE}Command{DEFAULT} ')
         check = _check_response(response)
 
@@ -315,10 +316,10 @@ def _confirm_grid(player: Player) -> bool:
                   f'({vessel.bow[0][0]}, {vessel.bow[0][1]})  |  '
                   f'{vessel.bow[1]}')
 
-    check = input(f'\n{PURPLE}{player.name}{DEFAULT}, '
+    check = input(f'\n{PURPLE} >>> {player.name}{DEFAULT}, '
                   f'FINAL CONFIRMATION (Y/N): ')
     while check not in AFFIRMATIVE and check not in NEGATIVE:
-        check = input(f'{RED}Invalid Option{DEFAULT} (Y/N): ')
+        check = input(f'{PURPLE} >>> {RED}Invalid Option{DEFAULT} (Y/N): ')
     if check in AFFIRMATIVE:
         return True
     print('')

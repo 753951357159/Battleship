@@ -5,7 +5,7 @@ PURPOSE:
 To start the entire program and will not exit without confirmation. The program
 will terminate only when the user decides to exit the program.
 """
-from Settings import TITLE, NAME, VERSION, MDW, DEFAULT, GREEN, RED
+from Settings import TITLE, NAME, VERSION, MDW, DEFAULT, GREEN, RED, PURPLE
 from Modes.TPT import main as tpt_main
 
 
@@ -51,10 +51,13 @@ def menu() -> bool:
     print(f'{"(9) LAN [Competitive]":<{window}}'.center(MDW))
     print(f'{"(0) QUIT":<{window}}'.center(MDW), f'\n')
 
+    options = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
     # Ask user for valid option if applicable
-    response = input('Option: ')
-    while (response not in '1234567890') or (response == ''):
-        response = input(f'{RED}Invalid Option{DEFAULT} - Please try again: ')
+    response = input(f'{PURPLE} >>> {DEFAULT}')
+    while (response not in options) or (response == ''):
+        response = input(f'{PURPLE} >>> {RED}Invalid Option{DEFAULT} - '
+                         f'Please try again: ')
 
     if response == '1':  # Starts the Single Player Arcade game mode
         return False
