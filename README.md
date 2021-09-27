@@ -1,5 +1,5 @@
 <p align="center">
-  <img width=300 src="https://github.com/753951357159/Battleship/blob/Project-Description/Icon.PNG?raw=true">
+  <img width=300 src="https://github.com/753951357159/Battleship/blob/main/Icon.PNG?raw=true">
 </p>
 
 _A small game project dedicated to my little brother who continuously pesters me to play with him._
